@@ -1,4 +1,4 @@
-package edu.cpp.senior_project.Recipe;
+package edu.cpp.seniorproject.Recipe;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
