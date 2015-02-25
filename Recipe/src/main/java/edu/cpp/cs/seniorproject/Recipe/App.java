@@ -1,4 +1,4 @@
-package edu.cpp.cs.seniorproject.Recipe.RecipeApp;
+package edu.cpp.cs.seniorproject.Recipe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
