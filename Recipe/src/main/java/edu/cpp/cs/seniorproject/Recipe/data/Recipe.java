@@ -1,7 +1,5 @@
 package edu.cpp.cs.seniorproject.Recipe.data;
 
-import java.util.List;
-
 /*
  * This class will define what a recipe is.
  * - ingredients 
@@ -11,8 +9,8 @@ import java.util.List;
 
 public class Recipe {
 	private String title;
-	private List<String> directions;
-	private List<String> ingredients;
+	private String directions;
+	private String ingredients;
 	
 	public String getTitle() {
 		return title;
@@ -20,18 +18,18 @@ public class Recipe {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public List<String> getDirections() {
+	public String getDirections() {
 		return directions;
 	}
-	public void setDirections(List<String> directions) {
+	public void setDirections(String directions) {
 		this.directions = directions;
 	}
 	
 	//maybe make ingredients a list? 
-	public List<String> getIngredients() {
+	public String getIngredients() {
 		return ingredients;
 	}
-	public void setIngredients(List<String> ingredients) {
+	public void setIngredients(String ingredients) {
 		this.ingredients = ingredients;
 	}
 }

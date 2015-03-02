@@ -39,11 +39,11 @@ public class Controller {
 		return r;
 	}
 	
-	@RequestMapping(value = "/cs461/recipe/{name}", method = RequestMethod.POST)
+	@RequestMapping(value = "/cs461/recipe/{title}", method = RequestMethod.POST)
 	Recipe updateRecipe(
-			@PathVariable("name") String title,
-			@RequestParam("directions") List<String> direcs,
-			@RequestParam(value = "ingredient", required = true) List<String> i){
+			@PathVariable("title") String title,
+			@RequestParam("directions") String direcs,
+			@RequestParam(value = "ingredient", required = true) String i){
 		Recipe recipe = new Recipe();
 		recipe.setTitle(title);
 		recipe.setDirections(direcs);
@@ -59,7 +59,6 @@ public class Controller {
 	
 	@RequestMapping(value = "/cs461/recipes", method = RequestMethod.GET)
 	ModelAndView getRecipeHomepage(){
-		System.out.println("called");
 		ModelAndView mav = new ModelAndView("recipes");
 		mav.addObject("recipes", persister.listAll());
 		return mav;

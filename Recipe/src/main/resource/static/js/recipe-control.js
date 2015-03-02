@@ -3,7 +3,7 @@ function healthCheck() {
 	$.ajax(
 			{
 				type : "GET",
-				url  : "/cs480/ping",
+				url  : "/cs461/ping",
 				data : {
 				},
 				success : function(result) {
@@ -15,37 +15,20 @@ function healthCheck() {
 			});
 }
 
+function addRecipe() {
 
-function deleteUser(userId) {
-	$.ajax(
-			{
-				type : "DELETE",
-				url  : "/cs480/user/" + userId,
-				data : {
-				},
-				success : function(result) {
-					location.reload();
-				},
-				error: function (jqXHR, exception) {
-					alert("Failed to delete the photo.");
-				}
-			});
-}
+	var title = $('#input_title').val();
+	var directions = $('#input_directions').val();
+	var ingredients = $('#input_ingredients').val();
 
-function addUser() {
-
-	var userId = $('#input_id').val();
-	var userName = $('#input_name').val();
-	var userMajor = $('#input_major').val();
-
-	if (userId) {
+	if (title) {
 		$.ajax(
 				{
 					type : "POST",
-					url  : "/cs480/user/" + userId,
+					url  : "/cs461/recipe/" + title,
 					data : {
-						"name" : userName,
-						"major" : userMajor
+						"directions" : directions,
+						"ingredients" : ingredients
 					},
 					success : function(result) {
 						location.reload();
@@ -59,19 +42,19 @@ function addUser() {
 	}
 }
 
-function getUser(userId) {
-	var userId = $('#query_id').val();
-	if (userId) {
+function getRecipe(ingredient) {
+	var ingredient = $('#query_ingredient').val();
+	if (ingredient) {
 		$.ajax(
 				{
 					type : "GET",
-					url  : "/cs480/user/" + userId,
+					url  : "/cs480/recipe/" + ingredient,
 					data : {
 					},
 					success : function(result) {
-						$('#result_id').text(result.id);
-						$('#result_name').text(result.name);
-						$('#result_major').text(result.major);
+						$('#result_title').text(result.title);
+						$('#result_directions').text(result.directions);
+						$('#result_ingredients').text(result.ingredients);
 					},
 					error: function (jqXHR, exception) {
 						alert("Failed to get the user.");
