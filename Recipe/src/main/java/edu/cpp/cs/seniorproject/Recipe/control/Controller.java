@@ -15,8 +15,7 @@ import edu.cpp.cs.seniorproject.Recipe.manager.IntRecipePersister;
 
 /*
  * Current Status: 
- * - Spring running
- * - Whitelabel 404 error: find out how to resolve it, compare with what prof. gave
+ * - Fix JS actions
  */
 
 @RestController
