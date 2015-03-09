@@ -34,11 +34,11 @@ function addRecipe() {
 						location.reload();
 					},
 					error: function (jqXHR, exception) {
-						alert("Failed to add the user. Please check the inputs.");
+						alert("Failed to add the recipe. Please check the inputs.");
 					}
 				});
 	} else {
-		alert("Invalid user Id");
+		alert("Invalid title");
 	}
 }
 
@@ -57,10 +57,10 @@ function getRecipe(ingredient) {
 						$('#result_ingredients').text(result.ingredients);
 					},
 					error: function (jqXHR, exception) {
-						alert("Failed to get the user.");
+						alert("Failed to get the recipe.");
 					}
 				});
 	} else {
-		alert("Invalid user Id");
+		alert("Invalid search");
 	}
 }
