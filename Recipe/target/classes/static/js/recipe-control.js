@@ -16,29 +16,29 @@ function healthCheck() {
 }
 
 function addRecipe() {
+    
+	var name = $('#input_title').val();
+	var instrc = $('#input_directions').val();
+	var ingr = $('#input_ingredients').val();
 
-	var title = $('#input_title').val();
-	var directions = $('#input_directions').val();
-	var ingredients = $('#input_ingredients').val();
-
-	if (title) {
+	if (name) {
 		$.ajax(
 				{
 					type : "POST",
-					url  : "/cs461/recipe/" + title,
+					url  : "/cs461/recipe/" + name,
 					data : {
-						"directions" : directions,
-						"ingredients" : ingredients
+						"instrc" : instrc,
+						"ingr" : ingr
 					},
 					success : function(result) {
 						location.reload();
 					},
 					error: function (jqXHR, exception) {
-						alert("Failed to add the user. Please check the inputs.");
+						alert("Failed to add the recipe. Please check the inputs.");
 					}
 				});
 	} else {
-		alert("Invalid user Id");
+		alert("Invalid title");
 	}
 }
 
@@ -57,10 +57,10 @@ function getRecipe(ingredient) {
 						$('#result_ingredients').text(result.ingredients);
 					},
 					error: function (jqXHR, exception) {
-						alert("Failed to get the user.");
+						alert("Failed to get the recipe.");
 					}
 				});
 	} else {
-		alert("Invalid user Id");
+		alert("Invalid search");
 	}
 }

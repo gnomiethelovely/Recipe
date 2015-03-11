@@ -38,15 +38,15 @@ public class Controller {
 		return r;
 	}
 	
-	@RequestMapping(value = "/cs461/recipe/{title}", method = RequestMethod.POST)
+	@RequestMapping(value = "/cs461/recipe/{name}", method = RequestMethod.POST)
 	Recipe updateRecipe(
-			@PathVariable("title") String title,
-			@RequestParam("directions") String direcs,
-			@RequestParam(value = "ingredient", required = true) String i){
+			@PathVariable("name") String title,
+			@RequestParam("instrc") String directions,
+			@RequestParam(value = "ingr", required = true) String instruct){
 		Recipe recipe = new Recipe();
 		recipe.setTitle(title);
-		recipe.setDirections(direcs);
-		recipe.setIngredients(i);
+		recipe.setDirections(directions);
+		recipe.setIngredients(instruct);
 		persister.updateRecipe(recipe);
 		return recipe;
 	}
